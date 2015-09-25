@@ -15,18 +15,27 @@
     </div>
     <div id="navbar">
       <ul class="nav navbar-nav">
-
+        <li>
+          <%= link_to 'Grade Reports', grade_reports_generate_report_path%>
+        </li>
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            </li>
+        <% else %>
+            <li>
+              <%= link_to('Login', new_user_session_path)  %>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
 <!--Popups for devise. ToDo: Convert to bootstrap classes later.-->
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <div class="container">
   <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
+      <div class="<%= flash_class(key) %>">
         <%= value %>
       </div>
   <% end %>

@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # Add bootstrap alerts
+  add_flash_types :success, :error, :warning, :danger
+
   # Checks for users admin status
   def ensure_admin!
     unless user_signed_in?
@@ -11,7 +14,7 @@ class ApplicationController < ActionController::Base
     end
     unless current_user.admin?
 
-      redirect_to welcome_adminonly_path
+      redirect_to root_path, warning: "That area requires administrative rights."
 
       return false
     end

@@ -16,9 +16,4 @@ class WelcomeController < ApplicationController
 
   end
 
-  def adminonly
-
-    flash[:alert] = "Alerting you to the monkey on your car!"
-
-  end
 end

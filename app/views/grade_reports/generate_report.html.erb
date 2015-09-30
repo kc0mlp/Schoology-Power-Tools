@@ -6,11 +6,23 @@
 
     <form role="form">
       <div class="form-group">
-        <label for="course_grade_search">Search for Course Grades Below:</label>
+        <label for="building_search">Choose one or more buildings to search:</label>
+        <br>
+        <% @buildings.each do |building| %>
+            &nbsp; &nbsp; &nbsp;
+            <label>
+                <input type="checkbox" id="buildingCheckbox" value="<%= building['id']%>" />
+                <%= building['title'] %>
+            </label>
+            <br>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <label for="course_grade_search">Search for Course Grades Below %:</label>
         <input type="text" id="course_grade_search" name="course_grade_search" class="form-control" />
       </div>
       <div class="form-group">
-        <label for="overall_grade_search">Search for Overall Grades Below:</label>
+        <label for="overall_grade_search">Search for Overall Grades Below %:</label>
         <input type="text" id="overall_grade_search" name="overall_grade_search" class="form-control" />
       </div>
 
@@ -21,11 +33,3 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Results:</h3>
-  </div>
-  <div class="panel-body">
-    <%= @data.as_json %>
-  </div>
-</div>

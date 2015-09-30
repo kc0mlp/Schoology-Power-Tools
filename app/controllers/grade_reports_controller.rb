@@ -13,9 +13,13 @@ class GradeReportsController < ApplicationController
                                        :scheme => :header,
                                        :http_method => :get
                                    })
-    resp = consumer.request(:get, '/messages/inbox')
+    resp = consumer.request(:get, '/schools/111100897/buildings')
 
-    @data = resp.body
+    json = JSON.parse(resp.body)
+    puts JSON.pretty_generate(json)
+
+    @buildings = json['building']
+
 
   end
 end

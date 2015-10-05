@@ -10,6 +10,6 @@ module ApplicationHelper
       when 'notice' then return "alert alert-notice"
 
     end
-
   end
+
 end

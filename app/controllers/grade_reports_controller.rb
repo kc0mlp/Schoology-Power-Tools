@@ -1,7 +1,12 @@
+require "#{Rails.root}/lib/schoology_module/schoology_student"
 class GradeReportsController < ApplicationController
   before_filter :ensure_admin!
 
   def generate_report
+
+    getter = SchoologyStudent('kaelhankins','KcBc@0525101','http://schoology.ccaschools.org/login?&school=111100897')
+
+    getter.openSession
 
 
 
@@ -16,7 +21,6 @@ class GradeReportsController < ApplicationController
     resp = consumer.request(:get, '/schools/111100897/buildings')
 
     json = JSON.parse(resp.body)
-    puts JSON.pretty_generate(json)
 
     @buildings = json['building']
 

@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Devise for local authentication
 gem 'devise'
+# Mechanize for site manipulation
+gem 'mechanize'
 # Oauth for Schoology API authentication
 gem 'oauth'
 # Use mysql as the database for Active Record

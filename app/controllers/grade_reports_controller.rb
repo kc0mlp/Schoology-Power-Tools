@@ -4,7 +4,8 @@ class GradeReportsController < ApplicationController
 
   def generate_report
 
-    getter = SchoologyStudent('kaelhankins','KcBc@0525101','http://schoology.ccaschools.org/login?&school=111100897')
+    #Fake User Credentials
+    getter = SchoologyStudent('student-1','cca123456','http://schoology.ccaschools.org/login?&school=111100897')
 
     getter.openSession
 
